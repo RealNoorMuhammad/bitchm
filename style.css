@@ -303,9 +303,7 @@ body.mobile-nav-open .image-section-right > video {
 }
 
 .mobile-logo-img {
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
+    display: none;
 }
 
 .mobile-nav-brand-text {
