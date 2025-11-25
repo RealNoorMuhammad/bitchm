@@ -85,9 +85,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (mobileNav.classList.contains('active')) {
                 document.body.style.overflow = 'hidden';
                 document.body.classList.add('mobile-nav-open');
+                document.documentElement.classList.add('mobile-nav-open');
+                document.documentElement.style.overflowX = 'hidden';
             } else {
                 document.body.style.overflow = 'auto';
                 document.body.classList.remove('mobile-nav-open');
+                document.documentElement.classList.remove('mobile-nav-open');
+                document.documentElement.style.overflowX = '';
             }
         });
     } else {
@@ -97,27 +101,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu when clicking on a link
     if (mobileNavLinks.length > 0) {
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (burgerMenu && mobileNav) {
-                    burgerMenu.classList.remove('active');
-                    mobileNav.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    document.body.classList.remove('mobile-nav-open');
+            link.addEventListener('click', function(e) {
+                // Allow navigation to happen
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    // Small delay to allow smooth transition
+                    setTimeout(() => {
+                        if (burgerMenu && mobileNav) {
+                            burgerMenu.classList.remove('active');
+                            mobileNav.classList.remove('active');
+                            document.body.style.overflow = 'auto';
+                            document.body.classList.remove('mobile-nav-open');
+                            document.documentElement.classList.remove('mobile-nav-open');
+                            document.documentElement.style.overflowX = '';
+                        }
+                    }, 300);
+                } else {
+                    // External links - close immediately
+                    if (burgerMenu && mobileNav) {
+                        burgerMenu.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        document.body.classList.remove('mobile-nav-open');
+                        document.documentElement.classList.remove('mobile-nav-open');
+                        document.documentElement.style.overflowX = '';
+                    }
                 }
             });
         });
     }
 
-    // Close mobile menu when clicking outside
+    // Close mobile menu when clicking outside (on backdrop)
     if (mobileNav) {
-        mobileNav.addEventListener('click', function(e) {
-            if (e.target === mobileNav) {
-                if (burgerMenu) {
+        const backdrop = mobileNav.querySelector('.mobile-nav-backdrop');
+        if (backdrop) {
+            backdrop.addEventListener('click', function() {
+                if (burgerMenu && mobileNav) {
                     burgerMenu.classList.remove('active');
                     mobileNav.classList.remove('active');
                     document.body.style.overflow = 'auto';
                     document.body.classList.remove('mobile-nav-open');
+                    document.documentElement.classList.remove('mobile-nav-open');
+                    document.documentElement.style.overflowX = '';
                 }
+            });
+        }
+    }
+
+    // Close button functionality
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function() {
+            if (burgerMenu && mobileNav) {
+                burgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                document.body.classList.remove('mobile-nav-open');
+                document.documentElement.classList.remove('mobile-nav-open');
+                document.documentElement.style.overflowX = '';
             }
         });
     }

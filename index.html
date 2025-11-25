@@ -50,18 +50,43 @@
 
 <!-- Mobile Navigation Menu -->
 <div class="mobile-nav" id="mobile-nav">
-    <div class="mobile-nav-content">
-        <a href="#page2" class="mobile-nav-link">About</a>
-        <a href="#page4" class="mobile-nav-link">How to buy</a>
-        <a href="#page5" class="mobile-nav-link">Tokenomics</a>
-        <div class="mobile-social">
-            <a href="https://x.com/i/communities/1971242200550773116/" target="_blank" class="mobile-social-btn">
-                <svg stroke="currentColor" stroke-width="0" viewBox="0 0 16 16" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path></svg>
-            </a>
-            
-            <a href="https://dexscreener.com/solana/cuxspsgfez2nqbk2bow3kangsjnu2aglbu2jy1swcfu" target="_blank" class="mobile-social-btn">
-                <img src="./Assets/pumpfun-logo.png" alt="Pumpfun" width="30" height="30" style="object-fit: contain;">
-            </a>
+    <div class="mobile-nav-backdrop"></div>
+    <div class="mobile-nav-drawer">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-logo">
+                <img src="./Assets/Logo.png" alt="BICHIMAO Logo" class="mobile-logo-img">
+            </div>
+            <button class="mobile-nav-close" id="mobile-nav-close">
+                <span class="close-line"></span>
+                <span class="close-line"></span>
+            </button>
+        </div>
+        <div class="mobile-nav-content">
+            <nav class="mobile-nav-menu">
+                <a href="#page2" class="mobile-nav-link">
+                    <span class="nav-link-text">About</span>
+                </a>
+                <a href="#page4" class="mobile-nav-link">
+                    <span class="nav-link-text">How to buy</span>
+                </a>
+                <a href="#page5" class="mobile-nav-link">
+                    <span class="nav-link-text">Tokenomics</span>
+                </a>
+            </nav>
+            <div class="mobile-nav-divider"></div>
+            <div class="mobile-social-section">
+                <p class="mobile-social-title">Connect with us</p>
+                <div class="mobile-social">
+                    <a href="https://x.com/i/communities/1971242200550773116/" target="_blank" class="mobile-social-btn">
+                        <svg stroke="currentColor" stroke-width="0" viewBox="0 0 16 16" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"></path></svg>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://dexscreener.com/solana/cuxspsgfez2nqbk2bow3kangsjnu2aglbu2jy1swcfu" target="_blank" class="mobile-social-btn">
+                        <img src="./Assets/pumpfun-logo.png" alt="Pumpfun" width="24" height="24" style="object-fit: contain;">
+                        <span>DexScreener</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
